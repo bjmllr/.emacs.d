@@ -2,6 +2,8 @@
 (add-to-list 'load-path "/home/bmiller/.emacs.d/lisp")
 
 (require 'prelude-packages)
+(byte-recompile-directory (expand-file-name "~/.emacs.d/lisp") 0)
+(byte-recompile-directory (expand-file-name "~/.emacs.d/elpa") 0)
 
 ;; packages configured by Custom
 (require 'whitespace)
