@@ -1,5 +1,4 @@
-(add-to-list 'load-path "/Users/bmiller/.emacs.d/lisp")
-(add-to-list 'load-path "/home/bmiller/.emacs.d/lisp")
+(add-to-list 'load-path "~/.emacs.d/lisp")
 
 (require 'prelude-packages)
 (byte-recompile-directory (expand-file-name "~/.emacs.d/lisp") 0)
