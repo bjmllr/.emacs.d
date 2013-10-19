@@ -1,6 +1,7 @@
 *.swp
 .emacs.desktop*
 *.dat
+*.elc
 auto-save-list
 ido.last
 places
