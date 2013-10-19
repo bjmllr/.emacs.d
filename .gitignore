@@ -1,0 +1,9 @@
+*.swp
+.emacs.desktop*
+*.dat
+ido.last
+places
+tramp
+elpa
+eshell
+
