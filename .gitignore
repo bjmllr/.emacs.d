@@ -1,6 +1,7 @@
 *.swp
 .emacs.desktop*
 *.dat
+auto-save-list
 ido.last
 places
 tramp
