@@ -205,10 +205,10 @@
 (global-set-key (kbd "s-v") 'yank)
 (global-set-key (kbd "s-V") 'yank-pop)
 ;; navigate windows
-(global-set-key (kbd "<s-up>") 'windmove-up)
-(global-set-key (kbd "<s-down>") 'windmove-down)
-(global-set-key (kbd "<s-right>") 'windmove-right)
-(global-set-key (kbd "<s-left>") 'windmove-left)
+(global-set-key (kbd "C-z C-<up>") 'windmove-up)
+(global-set-key (kbd "C-z C-<down>") 'windmove-down)
+(global-set-key (kbd "C-z C-<right>") 'windmove-right)
+(global-set-key (kbd "C-z C-<left>") 'windmove-left)
 
 ;;; other editing
 (setq kill-whole-line t)
