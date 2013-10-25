@@ -209,6 +209,8 @@
 (global-set-key (kbd "C-z C-<down>") 'windmove-down)
 (global-set-key (kbd "C-z C-<right>") 'windmove-right)
 (global-set-key (kbd "C-z C-<left>") 'windmove-left)
+;; navigate frames
+(global-set-key (kbd "C-z C-z") 'other-frame)
 
 ;;; other editing
 (setq kill-whole-line t)
