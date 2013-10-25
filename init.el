@@ -56,6 +56,7 @@
 (tool-bar-mode -1)
 (define-key global-map (kbd "C-c SPC") 'ace-jump-mode)
 (require 'ido) (ido-mode t)
+(set-face-attribute 'default nil :height 100)
 
 ;;; smart mode line
 (sml/setup)
