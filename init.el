@@ -126,6 +126,10 @@
 (setq-default tab-width 4)
 (smart-tabs-insinuate 'ruby)
 
+;;; (ma)git
+(global-set-key (kbd "C-c v s") 'magit-status)
+(global-set-key (kbd "C-c v w") 'server-edit)
+
 ;;; parens
 (smartparens-global-mode t)
 (sp-pair "("  ")"  :bind "C-(")
