@@ -47,17 +47,22 @@
 	ac-js2
 	ace-jump-buffer
 	ace-jump-mode
+	ag
 	auto-complete
 	auto-indent-mode
 	auto-save-buffers-enhanced
 	autopair
 	coffee-mode
 	dash-at-point
+	enh-ruby-mode
 	expand-region
+	etags
 	flycheck
 	gist
+	grizzl
 	helm
 	helm-projectile
+	ido-vertical-mode
 	inf-ruby
 	inflections
 	magit
@@ -75,8 +80,6 @@
 	ruby-end
 	ruby-interpolation
 	ruby-tools
-	rvm
-	skewer-mode
 	smart-mode-line
 	smart-tab
 	smart-tabs-mode
@@ -85,6 +88,7 @@
 	solarized-theme
 	sr-speedbar
 	w3m
+	web-mode
 	yaml-mode
 	yasnippet)
   "A list of packages to ensure are installed at launch")
