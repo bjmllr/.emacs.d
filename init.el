@@ -18,9 +18,7 @@
  '(backup-directory-alist (quote (("\".*\"" . "temporary-file-directory"))))
  '(column-number-mode t)
  '(custom-enabled-themes (quote (solarized-dark)))
- '(custom-safe-themes
-   (quote
-	("8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4" default)))
+ '(custom-safe-themes (quote ("8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4" default)))
  '(desktop-save t)
  '(desktop-save-mode t)
  '(electric-indent-mode t)
@@ -37,16 +35,15 @@
  '(uniquify-buffer-name-style (quote forward) nil (uniquify))
  '(visible-bell t)
  '(whitespace-display-mappings nil)
- '(whitespace-style
-   (quote
-	(face spaces trailing tabs space-before-tab indentation)))
+ '(whitespace-style (quote (face spaces trailing tabs space-before-tab indentation)))
  '(x-stretch-cursor t))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(whitespace-tab ((t (:background "#202b40")))))
+ '(whitespace-tab ((t (:background "#202b40"))))
+ '(widget-field ((t (:background "Black")))))
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;; custom-set-variables was added by Custom.
 
 ;;;;; Server
