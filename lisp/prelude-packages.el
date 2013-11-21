@@ -54,7 +54,6 @@
 	autopair
 	coffee-mode
 	dash-at-point
-	enh-ruby-mode
 	expand-region
 	etags
 	flycheck
