@@ -156,7 +156,8 @@
 (add-hook 'coffee-mode-hook 'disable-electric-indent)
 
 ;;;;; Ruby
-(rvm-use-default)
+(require 'chruby)
+(chruby "ruby")
 (setq rspec-use-rake-when-possible nil)
 (setq ruby-indent-tabs-mode t)
 (smart-tabs-advice ruby-indent-line ruby-indent-level)
