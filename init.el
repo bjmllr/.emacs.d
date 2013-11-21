@@ -1,7 +1,9 @@
 (add-to-list 'load-path "~/.emacs.d/lisp")
-
-(require 'prelude-packages)
 (byte-recompile-directory (expand-file-name "~/.emacs.d/lisp") 0)
+
+(add-to-list 'load-path "~/.cask/")
+(require 'cask)
+(cask-initialize)
 
 ;; packages configured by Custom
 (require 'whitespace)
