@@ -9,6 +9,8 @@
 (require 'whitespace)
 (require 'auto-complete)
 
+(setenv "PATH" (concat (getenv "PATH") ":/usr/local/bin"))
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;; custom-set-variables was added by Custom.
 (global-auto-revert-mode nil)
 (custom-set-variables
@@ -163,32 +165,22 @@
 (setq rspec-use-rake-when-possible nil)
 (setq ruby-indent-tabs-mode t)
 (smart-tabs-advice ruby-indent-line ruby-indent-level)
-(add-hook 'ruby-mode-hook 'hs-minor-mode)
 (require 'ruby-tools)
-(add-hook 'ruby-mode-hook 'ruby-tools-mode)
 (require 'ruby-end)
-(add-hook 'ruby-mode-hook 'ruby-end-mode)
-(require 'ruby-block)
-(ruby-block-mode t)
-(setq ruby-block-highlight-toggle t)
-(require 'robe)
-
-(push 'ac-source-robe ac-sources)
-(add-hook 'ruby-mode-hook 'flycheck-mode)
-
-;;; Ruby Emacs Magic
-;; rcodetools/xmpfilter
 (require 'rcodetools)
 (define-key ruby-mode-map (kbd "C-c C-c") 'xmp)
+(setenv "PAGER" (executable-find "cat"))
+(require 'robe)
+(push 'ac-source-robe ac-sources)
 
-;;; Ruby inferior process stuff that I don't yet grok
-;; (add-hook 'ruby-mode-hook 'robe-mode)
-;; (add-hook 'robe-mode-hook 'run-ruby)
-;; (add-hook 'robe-mode-hook 'robe-start)
-;; (add-to-list 'inf-ruby-implementations '("pry" . "pry"))
-;; (setq inf-ruby-default-implementation "pry")
-;; (setq inf-ruby-first-prompt-pattern "^\\[[0-9]+\\] pry\\((.*)\\)> *")
-;; (setq inf-ruby-prompt-pattern "^\\[[0-9]+\\] pry\\((.*)\\)[>*\"'] *")
+(add-hook 'ruby-mode-hook 'ruby-tools-mode)
+(add-hook 'ruby-mode-hook 'ruby-end-mode)
+(add-hook 'ruby-mode-hook 'flycheck-mode)
+(add-hook 'ruby-mode-hook 'rspec-mode)
+(add-hook 'ruby-mode-hook 'hs-minor-mode)
+(add-hook 'ruby-mode-hook 'robe-mode)
+
+(add-hook 'robe-mode-hook 'robe-start)
 
 ;;;;; PHP
 (defun bmiller/php-mode-init ()
