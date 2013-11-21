@@ -178,9 +178,10 @@
 (add-hook 'ruby-mode-hook 'flycheck-mode)
 (add-hook 'ruby-mode-hook 'rspec-mode)
 (add-hook 'ruby-mode-hook 'hs-minor-mode)
-(add-hook 'ruby-mode-hook 'robe-mode)
 
-(add-hook 'robe-mode-hook 'robe-start)
+;;; can't figure out how to get this to work well with bundler
+;; (add-hook 'ruby-mode-hook 'robe-mode)
+;; (add-hook 'robe-mode-hook 'robe-start)
 
 ;;;;; PHP
 (defun bmiller/php-mode-init ()
