@@ -58,6 +58,8 @@
 (define-key global-map (kbd "C-c SPC") 'ace-jump-mode)
 (require 'ido) (ido-mode t)
 (set-face-attribute 'default nil :height 100)
+(require 'frame-restore)
+(frame-restore-mode)
 
 ;;; smart mode line
 (sml/setup)
