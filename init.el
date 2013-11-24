@@ -54,6 +54,7 @@
 (server-start)
 
 ;;;;; UI
+(defalias 'yes-or-no-p 'y-or-n-p)
 (tool-bar-mode -1)
 (define-key global-map (kbd "C-c SPC") 'ace-jump-mode)
 (require 'ido) (ido-mode t)
