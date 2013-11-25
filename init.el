@@ -164,7 +164,7 @@
 
 ;;;;; Ruby
 (require 'chruby)
-(chruby "ruby")
+(chruby "2.0.0")
 (setq rspec-use-rake-when-possible nil)
 (setq ruby-indent-tabs-mode t)
 (smart-tabs-advice ruby-indent-line ruby-indent-level)
