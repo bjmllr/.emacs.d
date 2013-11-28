@@ -161,6 +161,7 @@
   (set (make-local-variable 'electric-indent-functions)
        (list (lambda (arg) 'no-indent))))
 (add-hook 'coffee-mode-hook 'disable-electric-indent)
+(add-hook 'yaml-mode-hook   'disable-electric-indent)
 
 ;;;;; Ruby
 (require 'chruby)
