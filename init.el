@@ -160,8 +160,20 @@
 (defun disable-electric-indent ()
   (set (make-local-variable 'electric-indent-functions)
        (list (lambda (arg) 'no-indent))))
-(add-hook 'coffee-mode-hook 'disable-electric-indent)
 (add-hook 'yaml-mode-hook   'disable-electric-indent)
+
+;;;;; HTML
+(add-hook 'html-mode-hook (lambda () (setq indent-tabs-mode nil)))
+
+;;;;; JavaScript
+(add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
+(add-hook 'js2-mode-hook (lambda () (setq indent-tabs-mode nil)))
+
+;;;;;  CoffeeScript
+(add-to-list 'auto-mode-alist '("\\.coffee.js\\'" . coffee-mode))
+;;(add-hook 'coffee-mode-hook (lambda () (setq indent-tabs-mode nil)))
+(add-hook 'coffee-mode-hook 'disable-electric-indent)
+(define-key coffee-mode-map [(super r)] 'coffee-compile-buffer)
 
 ;;;;; Ruby
 (require 'chruby)
