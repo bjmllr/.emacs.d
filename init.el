@@ -154,6 +154,9 @@
        (list (lambda (arg) 'no-indent))))
 (add-hook 'yaml-mode-hook   'disable-electric-indent)
 
+;;;;; ELisp
+(add-hook 'emacs-lisp-mode (lambda () (setq indent-tabs-mode nil)))
+
 ;;;;; HTML
 (add-hook 'html-mode-hook (lambda () (setq indent-tabs-mode nil)))
 (defun my-html-greaterthan ()
