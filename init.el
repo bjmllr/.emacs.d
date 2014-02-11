@@ -157,6 +157,27 @@
 
 ;;;;; HTML
 (add-hook 'html-mode-hook (lambda () (setq indent-tabs-mode nil)))
+(defun my-html-greaterthan ()
+  "Insert >, close the tag, place the cursor inside it, and indent"
+  (interactive)
+  (if (char-equal ?> (char-after)) (right-char) (insert ">"))
+  (save-excursion (sgml-close-tag) (funcall indent-line-function)))
+(eval-after-load 'sgml-mode
+  '(define-key html-mode-map (kbd ">") 'my-html-greaterthan))
+(defun my-html-newline ()
+  "Indents the current line, inserts a line, which it also indents; inserts an additional newline if point is between two tags"
+  (interactive)
+  (if (and (char-equal ?> (char-before)) (char-equal ?< (char-after)))
+	  (progn
+	   (funcall indent-line-function)
+	   (newline-and-indent)
+	   (save-excursion (newline-and-indent))
+	   (funcall indent-line-function))
+	(progn
+	  (funcall indent-line-function)
+	  (newline-and-indent))))
+(eval-after-load 'sgml-mode
+  '(define-key html-mode-map (kbd "RET") 'my-html-newline))
 
 ;;;;; JavaScript
 (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
