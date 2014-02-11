@@ -27,6 +27,7 @@
  '(desktop-save-mode t)
  '(electric-indent-mode t)
  '(electric-layout-mode t)
+ '(electric-pair-mode t)
  '(global-whitespace-mode t)
  '(ido-cannot-complete-command (quote ido-next-match))
  '(ido-everywhere t)
@@ -134,15 +135,6 @@
 (global-set-key (kbd "C-c v s") 'magit-status)
 (global-set-key (kbd "C-c v w") 'server-edit)
 
-;;; parens
-(smartparens-global-mode t)
-(sp-pair "("  ")"  :bind "C-(")
-(sp-pair "{"  "}"  :bind "C-{")
-(sp-pair "["  "]"  :bind "C-}")
-(sp-pair "\"" "\"" :bind "C-\"")
-(sp-pair "'"  "'"  :bind "C-'")
-;;(sp-pair "|"  "|"  :bind "C-|")
-
 ;; Autocomplete
 (global-auto-complete-mode t)
 (add-to-list 'ac-modes 'sql-mode 'ruby-mode)
@@ -173,7 +165,7 @@
 (add-to-list 'auto-mode-alist '("\\.coffee.js\\'" . coffee-mode))
 ;;(add-hook 'coffee-mode-hook (lambda () (setq indent-tabs-mode nil)))
 (add-hook 'coffee-mode-hook 'disable-electric-indent)
-(define-key coffee-mode-map [(super r)] 'coffee-compile-buffer)
+;;(define-key coffee-mode-map [(super r)] 'coffee-compile-buffer)
 
 ;;;;; Ruby
 (require 'chruby)
