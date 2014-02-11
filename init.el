@@ -130,7 +130,6 @@
 
 ;;;;; Programming
 (setq-default tab-width 4)
-(smart-tabs-insinuate 'ruby)
 
 ;;; (ma)git
 (global-set-key (kbd "C-c v s") 'magit-status)
@@ -214,6 +213,8 @@
 ;;(define-key coffee-mode-map [(super r)] 'coffee-compile-buffer)
 
 ;;;;; Ruby
+(smart-tabs-insinuate 'ruby)
+(add-hook 'ruby-mode-hook (lambda () (setq tab-width 4)))
 (require 'chruby)
 (chruby "2.0.0")
 (setq rspec-use-rake-when-possible nil)
