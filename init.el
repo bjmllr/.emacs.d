@@ -245,6 +245,9 @@
    (message "php-mode customizations activated"))
 (add-hook 'php-mode-hook 'bmiller/php-mode-init)
 
+;;;;; Haskell
+(add-hook 'haskell-mode-hook 'turn-on-haskell-indentation)
+
 ;;;;; Misc Key Bindings / Utility functions
 (global-unset-key (kbd "C-z")) ;; suspend-frame is also bound to C-x C-z
 (global-set-key (kbd "C-c i") 'insert-char)
