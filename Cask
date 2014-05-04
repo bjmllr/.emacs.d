@@ -61,7 +61,5 @@
 (depends-on "smarty-mode")
 (depends-on "solarized-theme")
 (depends-on "sr-speedbar")
-(depends-on "w3m")
-(depends-on "web-mode")
 (depends-on "yaml-mode")
 (depends-on "yasnippet")
