@@ -45,6 +45,7 @@
 (depends-on "puppet-mode")
 (depends-on "projectile")
 (depends-on "rainbow-delimiters")
+(depends-on "rbenv")
 (depends-on "robe")
 (depends-on "rspec-mode")
 (depends-on "ruby-block")

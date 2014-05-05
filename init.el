@@ -219,6 +219,8 @@
 ;;(define-key coffee-mode-map [(super r)] 'coffee-compile-buffer)
 
 ;;;;; Ruby
+(require 'rbenv)
+(global-rbenv-mode)
 (setq rspec-use-rake-when-possible nil)
 (require 'ruby-tools)
 (require 'ruby-end)
