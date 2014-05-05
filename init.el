@@ -18,7 +18,6 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(ac-auto-start t)
- '(backup-directory-alist (quote (("\".*\"" . "temporary-file-directory"))))
  '(column-number-mode t)
  '(custom-enabled-themes (quote (solarized-dark)))
  '(custom-safe-themes (quote ("8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4" default)))
@@ -130,6 +129,13 @@
 (recentf-mode 1)
 (global-set-key "\C-x f" 'recentf-open-files)
 (setq recentf-auto-cleanup 'never)
+
+;;; Backup/Autosave/Lockfiles
+(setq backup-directory-alist
+      `((".*" . ,temporary-file-directory)))
+(setq auto-save-file-name-transforms
+      `((".*" ,temporary-file-directory t)))
+(setq create-lockfiles nil)
 
 ;;;;; Programming
 (setq-default tab-width 4)
