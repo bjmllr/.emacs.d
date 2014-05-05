@@ -260,6 +260,19 @@
 (global-unset-key (kbd "C-z")) ;; suspend-frame is also bound to C-x C-z
 (global-set-key (kbd "C-c i") 'insert-char)
 
+(defun backward-kill-word-or-space-or-newline ()
+  (interactive)
+  (if (char-equal ?\n (char-before))
+         (backward-delete-char-untabify 1)
+       (if (or (char-equal ?\s (char-before))
+                       (char-equal ?\t (char-before)))
+               (progn
+                 (while (or (char-equal ?\s (char-before))
+                                        (char-equal ?\t (char-before)))
+                       (backward-delete-char-untabify 1)))
+         (backward-kill-word 1))))
+(global-set-key (kbd "C-<backspace>") 'backward-kill-word-or-space-or-newline)
+
 ;;; Mac key
 (setq mac-command-modifier 'super)
 ;; cut, copy, paste
