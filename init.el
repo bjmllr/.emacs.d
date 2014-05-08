@@ -256,6 +256,9 @@
 ;;;;; Haskell
 (add-hook 'haskell-mode-hook 'turn-on-haskell-indentation)
 
+;;;;; Scala
+(setq sbt:program-name (concat (getenv "HOME") "/.scala/sbt/bin/sbt"))
+
 ;;;;; Misc Key Bindings / Utility functions
 (global-unset-key (kbd "C-z")) ;; suspend-frame is also bound to C-x C-z
 (global-set-key (kbd "C-c i") 'insert-char)
