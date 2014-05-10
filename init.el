@@ -55,7 +55,7 @@
 ;;;;; UI
 (defalias 'yes-or-no-p 'y-or-n-p)
 (tool-bar-mode -1)
-(define-key global-map (kbd "C-c SPC") 'ace-jump-mode)
+(define-key global-map (kbd "C-c C-SPC") 'ace-jump-mode)
 (define-key global-map (kbd "M-j") (lambda ()
                                      (interactive)
                                      (newline-and-indent)
