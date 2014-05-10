@@ -242,6 +242,12 @@
 (add-hook 'ruby-mode-hook 'rspec-mode)
 (add-hook 'ruby-mode-hook 'hs-minor-mode)
 
+(add-to-list 'auto-mode-alist '("Capfile"    . ruby-mode))
+(add-to-list 'auto-mode-alist '("Gemfile\\'" . ruby-mode))
+(add-to-list 'auto-mode-alist '("Guardfile"  . ruby-mode))
+(add-to-list 'auto-mode-alist '("Rakefile"   . ruby-mode))
+(add-to-list 'auto-mode-alist '(".pryrc"     . ruby-mode))
+
 ;;; can't figure out how to get this to work well with bundler
 ;; (add-hook 'ruby-mode-hook 'robe-mode)
 ;; (add-hook 'robe-mode-hook 'robe-start)
