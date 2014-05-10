@@ -158,10 +158,13 @@
 				   ac-source-words-in-all-buffer
 				   ac-source-dictionary))
 
+;;;;; YAML
 (defun disable-electric-indent ()
   (set (make-local-variable 'electric-indent-functions)
        (list (lambda (arg) 'no-indent))))
 (add-hook 'yaml-mode-hook   'disable-electric-indent)
+
+(add-to-list 'auto-mode-alist '("\\.sls\\'"    . yaml-mode))
 
 ;;;;; ELisp
 (add-hook 'emacs-lisp-mode (lambda () (setq indent-tabs-mode nil)))
