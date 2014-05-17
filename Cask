@@ -28,7 +28,6 @@
 (depends-on "dash-at-point")
 (depends-on "expand-region")
 (depends-on "etags")
-(depends-on "evil")
 (depends-on "frame-restore")
 (depends-on "flycheck")
 (depends-on "gist")

@@ -69,9 +69,6 @@
 ;;; smart mode line
 (sml/setup)
 
-;;; evil-mode
-(evil-mode 1)
-
 ;;; window layouts
 (defun arrange-windows-two-by-two ()
   (interactive)
