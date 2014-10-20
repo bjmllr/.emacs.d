@@ -1,5 +1,7 @@
 *.swp
+*~
 .emacs.desktop*
+session*
 *.dat
 *.elc
 auto-save-list
