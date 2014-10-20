@@ -19,8 +19,10 @@
  ;; If there is more than one, they won't work right.
  '(ac-auto-start t)
  '(column-number-mode t)
- '(custom-enabled-themes (quote (solarized-dark)))
- '(custom-safe-themes (quote ("8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4" default)))
+ '(custom-enabled-themes (quote (smart-mode-line-dark)))
+ '(custom-safe-themes
+   (quote
+    ("6a37be365d1d95fad2f4d185e51928c789ef7a4ccf17e7ca13ad63a8bf5b922f" "8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4" "756597b162f1be60a12dbd52bab71d40d6a2845a3e3c2584c6573ee9c332a66e" default)))
  '(desktop-save t)
  '(desktop-save-mode t)
  '(electric-indent-mode t)
@@ -31,6 +33,7 @@
  '(ido-everywhere t)
  '(indent-tabs-mode nil)
  '(js2-basic-offset 2)
+ '(magit-use-overlays nil)
  '(save-place t nil (saveplace))
  '(show-paren-mode t)
  '(tab-stop-list (quote (4 8 12 16 20 24 28 32 36 40 44 48 52 56 60)))
@@ -38,13 +41,16 @@
  '(uniquify-buffer-name-style (quote forward) nil (uniquify))
  '(visible-bell t)
  '(whitespace-display-mappings nil)
- '(whitespace-style (quote (face spaces trailing tabs space-before-tab indentation)))
+ '(whitespace-style
+   (quote
+    (face spaces trailing tabs space-before-tab indentation)))
  '(x-stretch-cursor t))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(whitespace-space ((t nil)))
  '(whitespace-tab ((t (:background "#202b40"))))
  '(widget-field ((t (:background "Black")))))
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;; custom-set-variables was added by Custom.
@@ -63,8 +69,8 @@
                                      (funcall indent-line-function)))
 (require 'ido) (ido-mode t)
 (set-face-attribute 'default nil :height 100)
-(require 'frame-restore)
-(frame-restore-mode)
+
+(desktop-save-mode)
 
 ;;; smart mode line
 (sml/setup)
@@ -127,7 +133,7 @@
 
 ;;; Recent Files
 (recentf-mode 1)
-(global-set-key "\C-x f" 'recentf-open-files)
+(global-set-key (kbd "C-x f") 'recentf-open-files)
 (setq recentf-auto-cleanup 'never)
 
 ;;; Backup/Autosave/Lockfiles
