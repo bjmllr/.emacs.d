@@ -47,6 +47,7 @@
 (depends-on "php-mode")
 (depends-on "puppet-mode")
 (depends-on "projectile")
+(depends-on "powerline")
 (depends-on "rainbow-delimiters")
 (depends-on "rbenv")
 (depends-on "robe")
