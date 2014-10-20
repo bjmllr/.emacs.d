@@ -33,6 +33,7 @@
 (depends-on "flycheck")
 (depends-on "gist")
 (depends-on "grizzl")
+(depends-on "haskell-mode")
 (depends-on "helm")
 (depends-on "helm-projectile")
 (depends-on "ido-vertical-mode")
