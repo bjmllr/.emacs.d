@@ -238,7 +238,6 @@
 (global-rbenv-mode)
 (setq rspec-use-rake-when-possible nil)
 (require 'ruby-tools)
-(require 'ruby-end)
 (require 'rcodetools)
 (define-key ruby-mode-map (kbd "C-c C-c") 'xmp)
 (setenv "PAGER" (executable-find "cat"))
@@ -246,10 +245,8 @@
 (push 'ac-source-robe ac-sources)
 
 (add-hook 'ruby-mode-hook 'ruby-tools-mode)
-(add-hook 'ruby-mode-hook 'ruby-end-mode)
 (add-hook 'ruby-mode-hook 'flycheck-mode)
 (add-hook 'ruby-mode-hook 'rspec-mode)
-(add-hook 'ruby-mode-hook 'hs-minor-mode)
 
 (add-to-list 'auto-mode-alist '("Capfile"    . ruby-mode))
 (add-to-list 'auto-mode-alist '("Gemfile\\'" . ruby-mode))
@@ -322,3 +319,11 @@
 ;;;;; Docs
 ;;; Dash
 (global-set-key "\C-cd" 'dash-at-point)
+(defun my-diminish-modes ()
+  (diminish 'rspec-mode "rs")
+  (diminish 'flycheck-mode "c")
+  (diminish 'ruby-tools-mode "t")
+  (diminish 'global-whitespace-mode "s")
+  (diminish 'auto-complete-mode "a"))
+(run-at-time 0 nil 'my-diminish-modes)
+
