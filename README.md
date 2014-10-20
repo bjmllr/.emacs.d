@@ -1,1 +1,1 @@
-Requires GNU Emacs 24.3
+Requires GNU Emacs 24.4
