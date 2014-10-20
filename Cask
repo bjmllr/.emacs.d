@@ -27,6 +27,7 @@
 (depends-on "coffee-mode")
 (depends-on "dash-at-point")
 (depends-on "expand-region")
+(depends-on "erlang")
 (depends-on "etags")
 (depends-on "frame-restore")
 (depends-on "flycheck")
