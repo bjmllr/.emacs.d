@@ -142,8 +142,10 @@
 
 ;;;;; Programming
 (setq-default tab-width 4)
+(require 'flycheck)
 
 ;;; (ma)git
+(require 'magit)
 (global-set-key (kbd "C-c v s") 'magit-status)
 (global-set-key (kbd "C-c v w") 'server-edit)
 
@@ -231,6 +233,7 @@
 ;;(define-key coffee-mode-map [(super r)] 'coffee-compile-buffer)
 
 ;;;;; Ruby
+(require 'rspec-mode)
 (require 'rbenv)
 (global-rbenv-mode)
 (setq rspec-use-rake-when-possible nil)
@@ -373,12 +376,9 @@
 (load-theme 'solarized-dark t)
 (run-at-time 0 nil 'powerline-reset)
 
-(defun my-diminish-modes ()
-  (diminish 'magit-auto-revert-mode "GR")
-  (diminish 'rspec-mode "s")
-  (diminish 'flycheck-mode "c")
-  (diminish 'ruby-tools-mode "t")
-  (diminish 'global-whitespace-mode "w")
-  (diminish 'auto-complete-mode "a"))
-(run-at-time 0 nil 'my-diminish-modes)
-
+(diminish 'flycheck-mode "c")
+(diminish 'auto-complete-mode "a")
+(diminish 'global-whitespace-mode "w")
+(diminish 'magit-auto-revert-mode "r")
+(diminish 'rspec-mode "s")
+(diminish 'ruby-tools-mode "t")
