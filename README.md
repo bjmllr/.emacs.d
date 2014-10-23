@@ -3,6 +3,10 @@ Requires GNU Emacs 24.4
 Custom keybindings
 ==================
 
+buffers
+-------
+C-c T - term-with-title
+
 windows
 -------
 s-B - windmove-left

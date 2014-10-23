@@ -97,6 +97,22 @@
   (balance-windows))
 (global-set-key (kbd "s-w") 'arrange-windows-three-by-two)
 
+;;; Terminals
+(defun is-empty (s) (= (length s) 0))
+(defun term-with-title (title cmd)
+  "Start a shell in term-mode, optionally giving it an explicit title"
+  (interactive "sTitle of terminal session: \nsCommand to run: ")
+  (if (is-empty cmd) (term "/bin/bash") (term cmd))
+  (if (is-empty title) () (rename-buffer title)))
+(global-set-key (kbd "C-c T") 'term-with-title)
+
+(defun term-mode-no-whitespace () (whitespace-mode 0))
+(add-hook 'term-mode-hook 'term-mode-no-whitespace)
+
+(defadvice term-handle-exit
+    (after term-kill-buffer-on-exit activate)
+  (kill-buffer))
+
 ;;;;; File Management
 (global-set-key (kbd "C-x C-f") 'ido-find-file)
 
