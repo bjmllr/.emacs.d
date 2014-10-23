@@ -28,7 +28,7 @@
  '(electric-indent-mode t)
  '(electric-layout-mode t)
  '(electric-pair-mode t)
- '(global-whitespace-mode t)
+ '(global-whitespace-mode nil)
  '(ido-cannot-complete-command (quote ido-next-match))
  '(ido-everywhere t)
  '(indent-tabs-mode nil)
@@ -106,9 +106,6 @@
   (if (is-empty title) () (rename-buffer title)))
 (global-set-key (kbd "C-c T") 'term-with-title)
 
-(defun term-mode-no-whitespace () (whitespace-mode 0))
-(add-hook 'term-mode-hook 'term-mode-no-whitespace)
-
 (defadvice term-handle-exit
     (after term-kill-buffer-on-exit activate)
   (kill-buffer))
@@ -184,14 +181,17 @@
   (set (make-local-variable 'electric-indent-functions)
        (list (lambda (arg) 'no-indent))))
 (add-hook 'yaml-mode-hook   'disable-electric-indent)
+(add-hook 'yaml-mode-hook 'whitespace-mode)
 
 (add-to-list 'auto-mode-alist '("\\.sls\\'"    . yaml-mode))
 
 ;;;;; ELisp
 (add-hook 'emacs-lisp-mode (lambda () (setq indent-tabs-mode nil)))
+(add-hook 'emacs-lisp-mode 'whitespace-mode)
 
 ;;;;; HTML
 (add-hook 'html-mode-hook (lambda () (setq indent-tabs-mode nil)))
+(add-hook 'html-mode-hook 'whitespace-mode)
 (defun my-html-greaterthan ()
   "Insert >, close the tag, place the cursor inside it, and indent"
   (interactive)
@@ -220,6 +220,7 @@
 (add-hook 'js2-mode-hook (lambda () (setq electric-pair-mode nil)))
 (add-hook 'js2-mode-hook 'disable-electric-indent)
 (add-hook 'js2-mode-hook (lambda () (autopair-mode)))
+(add-hook 'js2-mode-hook 'whitespace-mode)
 (defun my-js2-newline ()
   "Indents the current line, inserts a line, which it also indents"
   (interactive)
@@ -246,6 +247,7 @@
 (add-to-list 'auto-mode-alist '("\\.coffee.js\\'" . coffee-mode))
 ;;(add-hook 'coffee-mode-hook (lambda () (setq indent-tabs-mode nil)))
 (add-hook 'coffee-mode-hook 'disable-electric-indent)
+(add-hook 'coffee-mode-hook 'whitespace-mode)
 ;;(define-key coffee-mode-map [(super r)] 'coffee-compile-buffer)
 
 ;;;;; Ruby
@@ -263,6 +265,8 @@
 (add-hook 'ruby-mode-hook 'ruby-tools-mode)
 (add-hook 'ruby-mode-hook 'flycheck-mode)
 (add-hook 'ruby-mode-hook 'rspec-mode)
+(add-hook 'ruby-mode-hook 'ruby-end-mode)
+(add-hook 'ruby-mode-hook 'whitespace-mode)
 
 (add-to-list 'auto-mode-alist '("Capfile"    . ruby-mode))
 (add-to-list 'auto-mode-alist '("Gemfile\\'" . ruby-mode))
@@ -280,9 +284,11 @@
    (setq indent-tabs-mode t)
    (message "php-mode customizations activated"))
 (add-hook 'php-mode-hook 'bmiller/php-mode-init)
+(add-hook 'php-mode-hook 'whitespace-mode)
 
 ;;;;; Haskell
 (add-hook 'haskell-mode-hook 'turn-on-haskell-indentation)
+(add-hook 'haskell-mode-hook 'whitespace-mode)
 
 ;;;;; Scala
 (setq sbt:program-name (concat (getenv "HOME") "/.scala/sbt/bin/sbt"))
