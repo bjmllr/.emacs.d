@@ -296,16 +296,12 @@
 (global-set-key (kbd "s-v") 'yank)
 (global-set-key (kbd "s-V") 'yank-pop)
 ;; navigate windows
-(global-set-key (kbd "s-<up>") 'windmove-up)
-(global-set-key (kbd "s-<down>") 'windmove-down)
-(global-set-key (kbd "s-<right>") 'windmove-right)
-(global-set-key (kbd "s-<left>") 'windmove-left)
-(global-set-key (kbd "C-s-<up>") 'windmove-up)
-(global-set-key (kbd "C-s-<down>") 'windmove-down)
-(global-set-key (kbd "C-s-<right>") 'windmove-right)
-(global-set-key (kbd "C-s-<left>") 'windmove-left)
+(global-set-key (kbd "s-P") 'windmove-up)
+(global-set-key (kbd "s-N") 'windmove-down)
+(global-set-key (kbd "s-F") 'windmove-right)
+(global-set-key (kbd "s-B") 'windmove-left)
 ;; navigate frames
-(global-set-key (kbd "C-z C-z") 'other-frame)
+(global-set-key (kbd "s-O") 'other-frame)
 
 ;;; other editing
 (setq kill-whole-line t)
