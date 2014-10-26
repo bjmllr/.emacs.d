@@ -154,8 +154,10 @@
 (setq create-lockfiles nil)
 
 ;;;;; Programming
-(setq-default tab-width 4)
 (require 'flycheck)
+(require 'aggressive-indent)
+
+(setq-default tab-width 4)
 (setq delete-trailing-lines t)
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
@@ -240,13 +242,15 @@
 ;;;;; Ruby
 (require 'rspec-mode)
 (require 'rbenv)
-(global-rbenv-mode)
-(setq rspec-use-rake-when-possible nil)
 (require 'ruby-tools)
 (require 'rcodetools)
+(require 'robe)
+(require 'ruby-end)
+
+(global-rbenv-mode)
+(setq rspec-use-rake-when-possible nil)
 (define-key ruby-mode-map (kbd "C-c C-c") 'xmp)
 (setenv "PAGER" (executable-find "cat"))
-(require 'robe)
 (push 'ac-source-robe ac-sources)
 
 (add-hook 'ruby-mode-hook 'ruby-tools-mode)
