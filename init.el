@@ -156,6 +156,8 @@
 ;;;;; Programming
 (setq-default tab-width 4)
 (require 'flycheck)
+(setq delete-trailing-lines t)
+(add-hook 'before-save-hook 'delete-trailing-whitespace)
 
 ;;; (ma)git
 (require 'magit)
