@@ -383,10 +383,11 @@
                 (powerline-render center)
                 (powerline-fill face1 (powerline-width rhs))
                 (powerline-render rhs)))))))
+
 (sml/setup)
 (bmiller/powerline-theme)
 (load-theme 'solarized-dark t)
-(run-at-time 0 nil 'powerline-reset)
+(add-hook 'window-configuration-change-hook 'powerline-reset)
 
 (diminish 'flycheck-mode "!")
 (diminish 'auto-complete-mode "*")
