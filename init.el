@@ -190,6 +190,7 @@
 (add-to-list 'auto-mode-alist '("\\.sls\\'"    . yaml-mode))
 
 ;;;;; ELisp
+(add-hook 'emacs-lisp-mode-hook (lambda () (setq mode-name "ELisp")))
 (add-hook 'emacs-lisp-mode (lambda () (setq indent-tabs-mode nil)))
 (add-hook 'emacs-lisp-mode 'whitespace-mode)
 (add-hook 'emacs-lisp-mode 'aggressive-indent-mode)
@@ -221,6 +222,7 @@
 
 ;;;;; JavaScript
 (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
+(add-hook 'js2-mode-hook (lambda () (setq mode-name "JS2")))
 (add-hook 'js2-mode-hook (lambda () (setq indent-tabs-mode nil)))
 (add-hook 'js2-mode-hook 'whitespace-mode)
 (add-hook 'js2-mode-hook 'aggressive-indent-mode)
