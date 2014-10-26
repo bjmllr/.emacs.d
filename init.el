@@ -220,31 +220,15 @@
 ;;;;; JavaScript
 (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
 (add-hook 'js2-mode-hook (lambda () (setq indent-tabs-mode nil)))
-(add-hook 'js2-mode-hook (lambda () (setq electric-pair-mode nil)))
-(add-hook 'js2-mode-hook 'disable-electric-indent)
-(add-hook 'js2-mode-hook (lambda () (autopair-mode)))
 (add-hook 'js2-mode-hook 'whitespace-mode)
-(defun my-js2-newline ()
-  "Indents the current line, inserts a line, which it also indents"
+(add-hook 'js2-mode-hook 'aggressive-indent-mode)
+
+(defun my-js2-funkey ()
+  "Types 'function' for me"
   (interactive)
-  (funcall indent-line-function)
-  (newline-and-indent))
+  (insert "function "))
 (eval-after-load 'js2-mode
-  '(define-key js2-mode-map (kbd "C-j") 'my-js2-newline))
-(defun my-js2-curly-bracket ()
-  "Indents, inserts {"
-  (interactive)
-  (funcall indent-line-function)
-  (insert "{"))
-(eval-after-load 'js2-mode
-  '(define-key js2-mode-map (kbd "{")   'my-js2-curly-bracket))
-(defun my-js2-semicolon ()
-  "Indents, inserts ;, indents again"
-  (interactive)
-  (funcall indent-line-function)
-  (insert ";"))
-(eval-after-load 'js2-mode
-  '(define-key js2-mode-map (kbd ";")   'my-js2-semicolon))
+  '(define-key js2-mode-map (kbd "C-f") 'my-js2-funkey))
 
 ;;;;;  CoffeeScript
 (add-to-list 'auto-mode-alist '("\\.coffee.js\\'" . coffee-mode))
