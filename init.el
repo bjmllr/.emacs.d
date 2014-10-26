@@ -249,6 +249,7 @@
 (require 'robe)
 (require 'ruby-end)
 
+(setq rbenv-show-active-ruby-in-modeline nil)
 (global-rbenv-mode)
 (setq rspec-use-rake-when-possible nil)
 (define-key ruby-mode-map (kbd "C-c C-c") 'xmp)
