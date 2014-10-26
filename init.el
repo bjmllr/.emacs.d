@@ -400,6 +400,11 @@
 (load-theme 'solarized-dark t)
 (add-hook 'window-configuration-change-hook 'powerline-reset)
 
+(add-to-list 'sml/replacer-regexp-list
+             '("^~/src/unipede/apps/global_api/public/ui/" ":UPui:") t)
+(add-to-list 'sml/replacer-regexp-list
+             '("^~/src/unipede/" ":UP:") t)
+
 (diminish 'flycheck-mode "!")
 (diminish 'auto-complete-mode "*")
 (diminish 'global-whitespace-mode)
