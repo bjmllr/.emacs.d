@@ -168,15 +168,15 @@
 (global-auto-complete-mode t)
 (add-to-list 'ac-modes 'sql-mode 'ruby-mode)
 (setq ac-sources '(ac-source-filename
-				   ac-source-functions
-				   ac-source-variables
-				   ac-source-symbols
-				   ac-source-features
-				   ac-source-abbrev
-				   ac-source-words-in-buffer
-				   ac-source-words-in-same-mode-buffers
-				   ac-source-words-in-all-buffer
-				   ac-source-dictionary))
+                   ac-source-functions
+                   ac-source-variables
+                   ac-source-symbols
+                   ac-source-features
+                   ac-source-abbrev
+                   ac-source-words-in-buffer
+                   ac-source-words-in-same-mode-buffers
+                   ac-source-words-in-all-buffer
+                   ac-source-dictionary))
 
 ;;;;; YAML
 (defun disable-electric-indent ()
@@ -190,6 +190,7 @@
 ;;;;; ELisp
 (add-hook 'emacs-lisp-mode (lambda () (setq indent-tabs-mode nil)))
 (add-hook 'emacs-lisp-mode 'whitespace-mode)
+(add-hook 'emacs-lisp-mode 'aggressive-indent-mode)
 
 ;;;;; HTML
 (add-hook 'html-mode-hook (lambda () (setq indent-tabs-mode nil)))
@@ -269,6 +270,7 @@
 (add-hook 'ruby-mode-hook 'rspec-mode)
 (add-hook 'ruby-mode-hook 'ruby-end-mode)
 (add-hook 'ruby-mode-hook 'whitespace-mode)
+(add-hook 'ruby-mode-hook 'aggressive-indent-mode)
 
 (add-to-list 'auto-mode-alist '("Capfile"    . ruby-mode))
 (add-to-list 'auto-mode-alist '("Gemfile\\'" . ruby-mode))

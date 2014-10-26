@@ -20,6 +20,7 @@
 (depends-on "ace-jump-buffer")
 (depends-on "ace-jump-mode")
 (depends-on "ag")
+(depends-on "aggressive-indent")
 (depends-on "auto-complete")
 (depends-on "auto-indent-mode")
 (depends-on "auto-save-buffers-enhanced")
