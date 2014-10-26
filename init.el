@@ -335,6 +335,11 @@
 
 ;;; smart mode line
 
+(defface powerline-active3
+  '((t (:background "grey70" :foreground "black" :inherit mode-line)))
+  "Powerline face 3."
+  :group 'powerline)
+
 (defun bmiller/powerline-theme ()
   "Setup a personal mode-line with major and minor modes centered."
   (interactive)
@@ -346,6 +351,8 @@
              (mode-line (if active 'mode-line 'mode-line-inactive))
              (face1 (if active 'powerline-active1 'powerline-inactive1))
              (face2 (if active 'powerline-active2 'powerline-inactive2))
+             (face3 (if active 'powerline-active3 'powerline-inactive2))
+
              (separator-left
               (intern (format "powerline-%s-%s"
                               powerline-default-separator
@@ -354,12 +361,14 @@
               (intern (format "powerline-%s-%s"
                               powerline-default-separator
                               (cdr powerline-default-separator-dir))))
+
              (lhs (list (powerline-raw "%*" nil 'l)
                         (powerline-buffer-id nil 'l)
                         (powerline-raw " ")
                         (funcall separator-left mode-line face1)
                         (powerline-narrow face1 'l)
                         (powerline-vc face1)))
+
              (rhs (list (powerline-raw "%4l" face1 'r)
                         (powerline-raw ":" face1)
                         (powerline-raw "%3c" face1 'r)
@@ -369,16 +378,17 @@
                         (powerline-raw "%6p" nil 'r)
                         (powerline-buffer-size nil 'l)
                         (powerline-hud face2 face1)))
+
              (center (list (powerline-raw " " face1)
-                           (funcall separator-left face1 face2)
+                           (funcall separator-left face1 face3)
                            (when (boundp 'erc-modified-channels-object)
                              (powerline-raw erc-modified-channels-object face2 'l))
-                           (powerline-major-mode face2 'l)
-                           (powerline-process face2)
-                           (powerline-raw ":" face2)
-                           (powerline-minor-modes face2 'l)
-                           (powerline-raw " " face2)
-                           (funcall separator-right face2 face1))))
+                           (powerline-major-mode face3 'l)
+                           (powerline-process face3)
+                           (powerline-raw ":" face3)
+                           (powerline-minor-modes face3 'l)
+                           (powerline-raw " " face3)
+                           (funcall separator-right face3 face1))))
         (concat (powerline-render lhs)
                 (powerline-fill-center face1 (/ (powerline-width center) 2.0))
                 (powerline-render center)
