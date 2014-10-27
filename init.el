@@ -83,7 +83,7 @@
   (windmove-down)
   (split-window-right)
   (windmove-up))
-(global-set-key (kbd "s-W") 'arrange-windows-two-by-two)
+(global-set-key (kbd "C-x 4") 'arrange-windows-two-by-two)
 (defun arrange-windows-three-by-two ()
   (interactive)
   (delete-other-windows)
@@ -97,7 +97,7 @@
   (windmove-left)
   (windmove-left)
   (balance-windows))
-(global-set-key (kbd "s-w") 'arrange-windows-three-by-two)
+(global-set-key (kbd "C-x 6") 'arrange-windows-three-by-two)
 
 ;;; Terminals
 (defun is-empty (s) (= (length s) 0))
