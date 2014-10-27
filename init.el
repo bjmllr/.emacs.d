@@ -99,10 +99,10 @@
 
 ;;; Terminals
 (defun is-empty (s) (= (length s) 0))
-(defun term-with-title (title cmd)
+(defun term-with-title (title)
   "Start a shell in term-mode, optionally giving it an explicit title"
-  (interactive "sTitle of terminal session: \nsCommand to run: ")
-  (if (is-empty cmd) (term "/bin/bash") (term cmd))
+  (interactive "sTitle of terminal session: ")
+  (ansi-term "/bin/bash")
   (if (is-empty title) () (rename-buffer title)))
 (global-set-key (kbd "C-c T") 'term-with-title)
 
