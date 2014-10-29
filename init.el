@@ -25,7 +25,6 @@
     ("6a37be365d1d95fad2f4d185e51928c789ef7a4ccf17e7ca13ad63a8bf5b922f" "8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4" "756597b162f1be60a12dbd52bab71d40d6a2845a3e3c2584c6573ee9c332a66e" default)))
  '(desktop-save t)
  '(desktop-save-mode t)
- '(electric-indent-mode t)
  '(electric-layout-mode t)
  '(electric-pair-mode t)
  '(global-whitespace-mode nil)
@@ -161,7 +160,9 @@
 
 (setq-default tab-width 4)
 (setq delete-trailing-lines t)
-(add-hook 'before-save-hook 'delete-trailing-whitespace)
+(defun delete-trailing-whitespace-after ()
+  (delete-trailing-whitespace (point)))
+(add-hook 'post-command-hook 'delete-trailing-whitespace-after)
 
 ;;; (ma)git
 (require 'magit)
