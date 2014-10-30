@@ -161,8 +161,9 @@
 (setq-default tab-width 4)
 (setq delete-trailing-lines t)
 (defun delete-trailing-whitespace-after ()
-  (delete-trailing-whitespace (point)))
-(add-hook 'post-command-hook 'delete-trailing-whitespace-after)
+  (delete-trailing-whitespace (point) (point-max)))
+(defun add-hook-delete-trailing-whitespace-after ()
+  (add-hook 'post-command-hook 'delete-trailing-whitespace-after))
 
 ;;; (ma)git
 (require 'magit)
@@ -259,12 +260,14 @@
 (setenv "PAGER" (executable-find "cat"))
 (push 'ac-source-robe ac-sources)
 
+(add-hook 'ruby-mode-hook (lambda () (electric-indent-local-mode -1)))
 (add-hook 'ruby-mode-hook 'ruby-tools-mode)
 (add-hook 'ruby-mode-hook 'flycheck-mode)
 (add-hook 'ruby-mode-hook 'rspec-mode)
 (add-hook 'ruby-mode-hook 'ruby-end-mode)
 (add-hook 'ruby-mode-hook 'whitespace-mode)
 (add-hook 'ruby-mode-hook 'aggressive-indent-mode)
+(add-hook 'ruby-mode-hook 'add-hook-delete-trailing-whitespace-after)
 
 (add-to-list 'auto-mode-alist '("Capfile"    . ruby-mode))
 (add-to-list 'auto-mode-alist '("Gemfile\\'" . ruby-mode))
