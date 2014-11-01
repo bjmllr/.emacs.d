@@ -184,6 +184,33 @@
                    ac-source-words-in-all-buffer
                    ac-source-dictionary))
 
+;;; guard (ct)
+
+;; http://stackoverflow.com/questions/8989540/touch-current-file-in-emacs
+(defun touch ()
+  "updates mtime on the file for the current buffer"
+  (interactive)
+  (shell-command (concat "touch " (shell-quote-argument (buffer-file-name))))
+  (clear-visited-file-modtime))
+(global-set-key (kbd "C-.") 'touch)
+
+;; TODO - make this not depend on magit
+;;      - try magit topdir, then projectile topdir, then PWD
+(defun guard ()
+  "start a local Guard session"
+  (interactive)
+  (shell-command
+   (concat "cd " (magit-get-top-dir) " && bin/guard --clear &")
+   (get-buffer-create "*Guard*"))
+  (set-buffer (get-buffer-create "*Guard*"))
+  (compilation-shell-minor-mode))
+
+(setq ansi-color-for-comint-mode-on t)
+
+(defun guard-listen ()
+  "start a local listen session for Guard"
+  (interactive))
+
 ;;;;; YAML
 (defun disable-electric-indent ()
   (set (make-local-variable 'electric-indent-functions)
@@ -428,3 +455,4 @@
 (diminish 'aggressive-indent-mode ">")
 (diminish 'ruby-end-mode)
 (diminish 'ruby-tools-mode)
+(diminish 'compilation-shell-minor-mode ":")
