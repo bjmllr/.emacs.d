@@ -260,7 +260,12 @@
 (setenv "PAGER" (executable-find "cat"))
 (push 'ac-source-robe ac-sources)
 
-(add-hook 'ruby-mode-hook (lambda () (electric-indent-local-mode -1)))
+(defun bmiller/ruby-before-save ()
+  (interactive)
+  (indent-region (point-min) (point-max))
+  (save-excursion (end-of-buffer) (delete-blank-lines))
+  (delete-trailing-whitespace (point-min) (point-max)))
+
 (add-hook 'ruby-mode-hook 'ruby-tools-mode)
 (add-hook 'ruby-mode-hook 'flycheck-mode)
 (add-hook 'ruby-mode-hook 'rspec-mode)
@@ -268,6 +273,9 @@
 (add-hook 'ruby-mode-hook 'whitespace-mode)
 (add-hook 'ruby-mode-hook 'aggressive-indent-mode)
 (add-hook 'ruby-mode-hook 'add-hook-delete-trailing-whitespace-after)
+(add-hook 'ruby-mode-hook
+          (lambda () (add-hook 'before-save-hook
+                               'bmiller/ruby-before-save nil t)))
 
 (add-to-list 'auto-mode-alist '("Capfile"    . ruby-mode))
 (add-to-list 'auto-mode-alist '("Gemfile\\'" . ruby-mode))
