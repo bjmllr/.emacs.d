@@ -237,18 +237,22 @@
   (save-excursion (sgml-close-tag) (funcall indent-line-function)))
 (eval-after-load 'sgml-mode
   '(define-key html-mode-map (kbd ">") 'bmiller/html-greaterthan))
+
 (defun bmiller/html-newline ()
   "Indents the current line, inserts a line, which it also indents; inserts an additional newline if point is between two tags"
   (interactive)
-  (if (and (char-equal ?> (char-before)) (char-equal ?< (char-after)))
-	  (progn
+  (if (= (point) (point-max))
+      (insert "\n")
+    (if (and (char-equal ?> (char-before)) (char-equal ?< (char-after)))
+        (progn
+          (funcall indent-line-function)
+          (newline-and-indent)
+          (save-excursion (newline-and-indent))
+          (funcall indent-line-function))
+      (progn
         (funcall indent-line-function)
-        (newline-and-indent)
-        (save-excursion (newline-and-indent))
-        (funcall indent-line-function))
-	(progn
-	  (funcall indent-line-function)
-	  (newline-and-indent))))
+        (newline-and-indent)))))
+
 (eval-after-load 'sgml-mode
   '(define-key html-mode-map (kbd "RET") 'bmiller/html-newline))
 
