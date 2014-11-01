@@ -247,7 +247,7 @@
         (progn
           (funcall indent-line-function)
           (newline-and-indent)
-          (save-excursion (newline-and-indent))
+          (save-excursion (next-line) (funcall indent-line-function))
           (funcall indent-line-function))
       (progn
         (funcall indent-line-function)
