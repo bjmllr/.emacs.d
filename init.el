@@ -263,7 +263,7 @@
   (interactive)
   (insert "function "))
 (eval-after-load 'js2-mode
-  '(define-key js2-mode-map (kbd "C-f") 'bmiller/js2-funkey))
+  '(define-key js2-mode-map (kbd "C-c C-f") 'bmiller/js2-funkey))
 
 ;;;;;  CoffeeScript
 (add-to-list 'auto-mode-alist '("\\.coffee.js\\'" . coffee-mode))
