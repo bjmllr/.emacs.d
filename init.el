@@ -97,6 +97,7 @@
   (windmove-left)
   (balance-windows))
 (global-set-key (kbd "C-x 6") 'arrange-windows-three-by-two)
+(global-set-key (kbd "C-x 5") 'make-frame)
 
 ;;; Terminals
 (defun is-empty (s) (= (length s) 0))
