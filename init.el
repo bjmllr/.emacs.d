@@ -143,9 +143,9 @@
 (global-set-key (kbd "C-c k") 'delete-this-buffer-and-file)
 
 ;;; Recent Files
+(setq recentf-auto-cleanup 'never)
 (recentf-mode 1)
 (global-set-key (kbd "C-x f") 'recentf-open-files)
-(setq recentf-auto-cleanup 'never)
 
 ;;; Backup/Autosave/Lockfiles
 (setq backup-directory-alist
