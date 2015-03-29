@@ -93,7 +93,7 @@
   (windmove-down)
   (split-window-right)
   (windmove-up))
-(global-set-key (kbd "C-x 4") 'arrange-windows-two-by-two)
+(global-set-key (kbd "C-x 7") 'arrange-windows-two-by-two)
 (defun arrange-windows-three-by-two ()
   (interactive)
   (delete-other-windows)
