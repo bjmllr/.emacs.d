@@ -59,6 +59,7 @@
 (depends-on "ruby-tools")
 (depends-on "sbt-mode")
 (depends-on "scala-mode2")
+(depends-on "shm")
 (depends-on "smart-mode-line")
 (depends-on "smart-tab")
 (depends-on "smart-tabs-mode")
