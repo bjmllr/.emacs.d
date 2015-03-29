@@ -358,6 +358,10 @@
 ;;;;; Scala
 (setq sbt:program-name (concat (getenv "HOME") "/.scala/sbt/bin/sbt"))
 
+;;;;; C
+(setq-default c-basic-offset 4)
+(setq c-basic-offset 4)
+
 ;;;;; Misc Key Bindings / Utility functions
 (global-unset-key (kbd "C-z")) ;; suspend-frame is also bound to C-x C-z
 (global-set-key (kbd "C-c i") 'insert-char)
