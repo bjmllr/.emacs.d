@@ -68,4 +68,6 @@
 (depends-on "solarized-theme")
 (depends-on "sr-speedbar")
 (depends-on "yaml-mode")
+(depends-on "yard-mode")
+(depends-on "yari")
 (depends-on "yasnippet")
