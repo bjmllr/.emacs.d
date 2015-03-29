@@ -116,6 +116,19 @@
     (after term-kill-buffer-on-exit activate)
   (kill-buffer))
 
+;;; comma separated lists
+(defun next-comma ()
+  (interactive)
+  (re-search-forward "[,\(\{]\\|do")
+  (re-search-forward "[^[:space:]\n\(\{]")
+  (backward-char))
+(global-set-key (kbd "C-,") 'next-comma)
+(defun prev-comma ()
+  (interactive)
+  (re-search-backward "[,\)\}]\\|end")
+  (re-search-backward "[^[:space:]\n\)\},]"))
+(global-set-key (kbd "C-M-,") 'prev-comma)
+
 ;;;;; File Management
 (global-set-key (kbd "C-x C-f") 'ido-find-file)
 
