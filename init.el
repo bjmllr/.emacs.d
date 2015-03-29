@@ -27,6 +27,10 @@
  '(desktop-save-mode t)
  '(electric-layout-mode t)
  '(electric-pair-mode t)
+ '(erc-modules
+   (quote
+    (autojoin button completion fill irccontrols keep-place list log match menu move-to-prompt netsplit networks noncommands readonly ring scrolltobottom stamp track)))
+ '(erc-track-enable-keybindings nil)
  '(global-whitespace-mode nil)
  '(ido-cannot-complete-command (quote ido-next-match))
  '(ido-everywhere t)
@@ -427,8 +431,6 @@
 
              (center (list (powerline-raw " " face1)
                            (funcall separator-left face1 face3)
-                           (when (boundp 'erc-modified-channels-object)
-                             (powerline-raw erc-modified-channels-object face2 'l))
                            (powerline-major-mode face3 'l)
                            (powerline-process face3)
                            (powerline-raw ":" face3)
@@ -440,6 +442,11 @@
                 (powerline-render center)
                 (powerline-fill face1 (powerline-width rhs))
                 (powerline-render rhs)))))))
+
+;; ERC channel notifications can be added like this:
+;; (when (boundp 'erc-modified-channels-object)
+;;   (powerline-raw erc-modified-channels-object face2 'l))
+;; but ERC adds that list to some other object in the above, need to investigate
 
 (sml/setup)
 (bmiller/powerline-theme)
@@ -461,3 +468,22 @@
 (diminish 'ruby-end-mode)
 (diminish 'ruby-tools-mode)
 (diminish 'compilation-shell-minor-mode ":")
+
+;;;;; IRC (ERC)
+
+;; http://www.emacswiki.org/emacs/ErcChannelTracking
+(setq erc-log-channels-directory "~/.erc/logs/")
+(setq erc-save-buffer-on-part t)
+(add-hook 'erc-insert-post-hook 'erc-save-buffer-in-logs)
+(setq erc-track-exclude-types '("JOIN" "PART" "QUIT" "NICK" "MODE"))
+(setq erc-hide-list '("JOIN" "PART" "QUIT" "NICK" "MODE"))
+(setq erc-join-buffer 'bury)
+(setq erc-log-insert-log-on-open nil)
+
+(defun reset-erc-track-mode ()
+  (interactive)
+  (setq erc-modified-channels-alist nil)
+  (erc-modified-channels-update))
+(global-set-key (kbd "C-c @") 'erc-track-switch-buffer)
+
+(load "~/.erc/init.el")
