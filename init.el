@@ -78,6 +78,12 @@
 
 (desktop-save-mode)
 
+;;; scratch buffer
+(defun scratch ()
+  (interactive)
+  (switch-to-buffer "*scratch*"))
+(define-key global-map (kbd "s-s") 'scratch)
+
 ;;; window layouts
 (defun arrange-windows-two-by-two ()
   (interactive)
