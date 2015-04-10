@@ -536,3 +536,6 @@
   (next-line)
   (indent-for-tab-command))
 (global-set-key (kbd "C-c C-e") 'ruby-document-end)
+
+(if (file-name-nondirectory "~/.emacs.d/post-init.el")
+    (load "~/.emacs.d/post-init.el"))
