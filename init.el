@@ -19,10 +19,10 @@
  ;; If there is more than one, they won't work right.
  '(ac-auto-start t)
  '(column-number-mode t)
- '(custom-enabled-themes (quote (smart-mode-line-dark)))
+ ;;'(custom-enabled-themes (quote (smart-mode-line-dark)))
  '(custom-safe-themes
    (quote
-    ("6a37be365d1d95fad2f4d185e51928c789ef7a4ccf17e7ca13ad63a8bf5b922f" "8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4" "756597b162f1be60a12dbd52bab71d40d6a2845a3e3c2584c6573ee9c332a66e" default)))
+    ("3c83b3676d796422704082049fc38b6966bcad960f896669dfc21a7a37a748fa" "6a37be365d1d95fad2f4d185e51928c789ef7a4ccf17e7ca13ad63a8bf5b922f" "8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4" "756597b162f1be60a12dbd52bab71d40d6a2845a3e3c2584c6573ee9c332a66e" default)))
  '(desktop-save t)
  '(desktop-save-mode t)
  '(electric-layout-mode t)
@@ -472,15 +472,15 @@
 ;;   (powerline-raw erc-modified-channels-object face2 'l))
 ;; but ERC adds that list to some other object in the above, need to investigate
 
-(sml/setup)
-(bmiller/powerline-theme)
+;; (sml/setup)
+;; (bmiller/powerline-theme)
 (load-theme 'solarized-dark t)
-(add-hook 'window-configuration-change-hook 'powerline-reset)
+;; (add-hook 'window-configuration-change-hook 'powerline-reset)
 
-(add-to-list 'sml/replacer-regexp-list
-             '("^~/src/unipede/apps/global_api/public/ui/" ":UPui:") t)
-(add-to-list 'sml/replacer-regexp-list
-             '("^~/src/unipede/" ":UP:") t)
+;;(add-to-list 'sml/replacer-regexp-list
+;;             '("^~/src/unipede/apps/global_api/public/ui/" ":UPui:") t)
+;;(add-to-list 'sml/replacer-regexp-list
+;;             '("^~/src/unipede/" ":UP:") t)
 
 (diminish 'flycheck-mode "!")
 (diminish 'auto-complete-mode "*")
