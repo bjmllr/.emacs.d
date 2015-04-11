@@ -194,6 +194,7 @@
 (require 'magit)
 (global-set-key (kbd "C-c v s") 'magit-status)
 (global-set-key (kbd "C-c v w") 'server-edit)
+(setq magit-last-seen-setup-instructions "1.4.0")
 
 ;; Autocomplete
 (global-auto-complete-mode t)
