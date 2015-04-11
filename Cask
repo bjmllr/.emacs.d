@@ -1,4 +1,4 @@
-;; (source gnu)
+(source gnu)
 (source melpa)
 
 (depends-on "cask")
