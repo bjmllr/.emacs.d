@@ -306,16 +306,23 @@
 (require 'rspec-mode)
 (require 'rbenv)
 (require 'ruby-tools)
-(require 'rcodetools)
 (require 'robe)
 (require 'ruby-end)
 
 (setq rbenv-show-active-ruby-in-modeline nil)
 (global-rbenv-mode)
 (setq rspec-use-rake-when-possible nil)
-(define-key ruby-mode-map (kbd "C-c C-c") 'xmp)
 (setenv "PAGER" (executable-find "cat"))
 (push 'ac-source-robe ac-sources)
+
+(defun seeing-is-believing ()
+  "Replace the current region (or the whole buffer, if none) with the output
+of seeing_is_believing."
+  (interactive)
+  (let ((beg (if (region-active-p) (region-beginning) (point-min)))
+        (end (if (region-active-p) (region-end) (point-max))))
+    (shell-command-on-region beg end "seeing_is_believing -n 100 -t 10" nil 'replace)))
+(define-key ruby-mode-map (kbd "C-c C-c") 'seeing-is-believing)
 
 (defun bmiller/ruby-before-save ()
   (interactive)
