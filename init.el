@@ -520,8 +520,7 @@ of seeing_is_believing."
   (erc-modified-channels-update))
 (global-set-key (kbd "C-c @") 'erc-track-switch-buffer)
 
-
-(if (file-name-nondirectory "~/.erc/init.el")
+(if (file-exists-p "~/.erc/init.el")
     (load "~/.erc/init.el"))
 
 (defun ruby-document-end ()
@@ -549,5 +548,5 @@ of seeing_is_believing."
   (indent-for-tab-command))
 (global-set-key (kbd "C-c C-e") 'ruby-document-end)
 
-(if (file-name-nondirectory "~/.emacs.d/post-init.el")
+(if (file-exists-p "~/.emacs.d/post-init.el")
     (load "~/.emacs.d/post-init.el"))
