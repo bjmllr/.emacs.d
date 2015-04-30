@@ -518,7 +518,9 @@ of seeing_is_believing."
   (erc-modified-channels-update))
 (global-set-key (kbd "C-c @") 'erc-track-switch-buffer)
 
-(load "~/.erc/init.el")
+
+(if (file-name-nondirectory "~/.erc/init.el")
+    (load "~/.erc/init.el"))
 
 (defun ruby-document-end ()
   (interactive)
