@@ -320,8 +320,10 @@
 of seeing_is_believing."
   (interactive)
   (let ((beg (if (region-active-p) (region-beginning) (point-min)))
-        (end (if (region-active-p) (region-end) (point-max))))
-    (shell-command-on-region beg end "seeing_is_believing -n 100 -t 10" nil 'replace)))
+        (end (if (region-active-p) (region-end) (point-max)))
+        (origin (point)))
+    (shell-command-on-region beg end "seeing_is_believing -x -n 100 -t 10" nil 'replace)
+    (goto-char origin)))
 (define-key ruby-mode-map (kbd "C-c C-c") 'seeing-is-believing)
 
 (defun bmiller/ruby-before-save ()
