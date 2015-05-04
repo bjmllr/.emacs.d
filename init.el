@@ -17,7 +17,6 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(ac-auto-start t)
  '(column-number-mode t)
  ;;'(custom-enabled-themes (quote (smart-mode-line-dark)))
  '(custom-safe-themes
@@ -200,18 +199,6 @@
 (setq magit-last-seen-setup-instructions "1.4.0")
 
 ;; Autocomplete
-(global-auto-complete-mode t)
-(add-to-list 'ac-modes 'sql-mode 'ruby-mode)
-(setq ac-sources '(ac-source-filename
-                   ac-source-functions
-                   ac-source-variables
-                   ac-source-symbols
-                   ac-source-features
-                   ac-source-abbrev
-                   ac-source-words-in-buffer
-                   ac-source-words-in-same-mode-buffers
-                   ac-source-words-in-all-buffer
-                   ac-source-dictionary))
 
 ;;; guard (ct)
 
@@ -316,7 +303,6 @@
 (global-rbenv-mode)
 (setq rspec-use-rake-when-possible nil)
 (setenv "PAGER" (executable-find "cat"))
-(push 'ac-source-robe ac-sources)
 
 (defun seeing-is-believing ()
   "Replace the current region (or the whole buffer, if none) with the output
@@ -553,3 +539,10 @@ of seeing_is_believing."
 
 (if (file-exists-p "~/.emacs.d/post-init.el")
     (load "~/.emacs.d/post-init.el"))
+
+;;; expansion
+
+;;;;; Company
+(global-company-mode t)
+(eval-after-load 'company
+  '(add-to-list 'company-backends 'company-robe))
