@@ -181,6 +181,10 @@
       `((".*" ,temporary-file-directory t)))
 (setq create-lockfiles nil)
 
+;;; Org Mode
+(add-hook 'org-mode-hook (lambda () (org-indent-mode)))
+(add-hook 'org-mode-hook (lambda () (visual-line-mode)))
+
 ;;;;; Programming
 (require 'flycheck)
 (require 'aggressive-indent)
