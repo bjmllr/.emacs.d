@@ -546,3 +546,9 @@ of seeing_is_believing."
 (global-company-mode t)
 (eval-after-load 'company
   '(add-to-list 'company-backends 'company-robe))
+
+;;;;; abbrev
+(setq-default abbrev-mode t)
+(setq save-abbrevs t)
+(setq abbrev-file-name "~/.emacs.d/abbreviations.el")
+(quietly-read-abbrev-file)
