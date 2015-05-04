@@ -62,6 +62,9 @@
 (server-start)
 
 ;;;;; UI
+(require 'multiple-cursors)
+(global-set-key (kbd "C-c m l") 'mc/edit-lines)
+
 (require 'expand-region)
 (defalias 'yes-or-no-p 'y-or-n-p)
 (tool-bar-mode -1)

@@ -6,7 +6,6 @@
 (depends-on "drag-stuff")
 (depends-on "expand-region")
 (depends-on "magit")
-(depends-on "multiple-cursors")
 (depends-on "popwin")
 (depends-on "projectile")
 (depends-on "s")
