@@ -3,6 +3,7 @@
 
 (setq mc/cmds-to-run-for-all
       '(
+        indent-for-tab-command
         kill-region
         ruby-end-space
         ruby-tools-clear-string

@@ -43,6 +43,7 @@
 (depends-on "markdown-mode")
 (depends-on "multiple-cursors")
 (depends-on "paredit")
+(depends-on "phi-search")
 (depends-on "php-mode")
 (depends-on "powerline")
 (depends-on "projectile")

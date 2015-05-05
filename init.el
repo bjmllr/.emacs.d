@@ -62,7 +62,10 @@
 
 ;;;;; UI
 (require 'multiple-cursors)
+(require 'phi-search)
 (global-set-key (kbd "C-c m l") 'mc/edit-lines)
+(global-set-key (kbd "C-c m p") 'mc/mark-prev-like-this)
+(global-set-key (kbd "C-c m n") 'mc/mark-next-like-this)
 
 (require 'expand-region)
 (defalias 'yes-or-no-p 'y-or-n-p)
