@@ -37,6 +37,7 @@
  '(indent-tabs-mode nil)
  '(js2-basic-offset 2)
  '(magit-use-overlays nil)
+ '(safe-local-variable-values (quote ((encoding . utf-8))))
  '(save-place t nil (saveplace))
  '(show-paren-mode t)
  '(tab-stop-list (quote (4 8 12 16 20 24 28 32 36 40 44 48 52 56 60)))
