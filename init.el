@@ -32,6 +32,7 @@
  '(erc-track-enable-keybindings nil)
  '(global-whitespace-mode nil)
  '(ido-cannot-complete-command (quote ido-next-match))
+ '(ido-default-buffer-method (quote maybe-frame))
  '(ido-everywhere t)
  '(indent-tabs-mode nil)
  '(js2-basic-offset 2)
