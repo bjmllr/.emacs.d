@@ -44,9 +44,6 @@
  '(uniquify-buffer-name-style (quote reverse) nil (uniquify))
  '(visible-bell t)
  '(whitespace-display-mappings nil)
- '(whitespace-style
-   (quote
-    (face spaces trailing tabs space-before-tab indentation)))
  '(x-stretch-cursor t))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
