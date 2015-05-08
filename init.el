@@ -31,12 +31,11 @@
     (autojoin button completion fill irccontrols keep-place list log match menu move-to-prompt netsplit networks noncommands readonly ring scrolltobottom stamp track)))
  '(erc-track-enable-keybindings nil)
  '(global-whitespace-mode nil)
- '(ido-cannot-complete-command (quote ido-next-match))
- '(ido-default-buffer-method (quote maybe-frame))
- '(ido-everywhere t)
+ '(helm-mode t)
  '(indent-tabs-mode nil)
  '(js2-basic-offset 2)
  '(magit-use-overlays nil)
+ '(projectile-global-mode t)
  '(safe-local-variable-values (quote ((encoding . utf-8))))
  '(save-place t nil (saveplace))
  '(show-paren-mode t)
@@ -77,7 +76,6 @@
                                      (newline-and-indent)
                                      (previous-line)
                                      (funcall indent-line-function)))
-(require 'ido) (ido-mode t)
 (set-face-attribute 'default nil :height 100)
 
 (desktop-save-mode)
@@ -141,7 +139,6 @@
 (global-set-key (kbd "C-M-,") 'prev-comma)
 
 ;;;;; File Management
-(global-set-key (kbd "C-x C-f") 'ido-find-file)
 
 ;;; can't remember where this came from
 (defun rename-file-and-buffer ()

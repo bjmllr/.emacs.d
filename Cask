@@ -36,7 +36,6 @@
 (depends-on "haskell-mode")
 (depends-on "helm")
 (depends-on "helm-projectile")
-(depends-on "ido-vertical-mode")
 (depends-on "inf-ruby")
 (depends-on "inflections")
 (depends-on "magit")
