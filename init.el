@@ -466,7 +466,7 @@ of seeing_is_believing."
   (ruby-beginning-of-block)
   (next-line)
   (indent-for-tab-command))
-(global-set-key (kbd "C-c C-e") 'ruby-document-end)
+(define-key ruby-mode-map (kbd "C-c C-e") 'ruby-document-end)
 
 (if (file-exists-p "~/.emacs.d/post-init.el")
     (load "~/.emacs.d/post-init.el"))
