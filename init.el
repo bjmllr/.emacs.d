@@ -323,6 +323,8 @@ of seeing_is_believing."
   (save-excursion (end-of-buffer) (delete-blank-lines))
   (delete-trailing-whitespace (point-min) (point-max)))
 
+(define-key ruby-mode-map (kbd "C-c C-h") 'yari-helm)
+
 (add-hook 'ruby-mode-hook 'ruby-tools-mode)
 (add-hook 'ruby-mode-hook 'flycheck-mode)
 (add-hook 'ruby-mode-hook 'rspec-mode)
