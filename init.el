@@ -421,7 +421,10 @@ of seeing_is_believing."
 (diminish 'aggressive-indent-mode ">")
 (diminish 'ruby-end-mode)
 (diminish 'ruby-tools-mode)
+(diminish 'abbrev-mode)
 (diminish 'compilation-shell-minor-mode ":")
+(diminish 'projectile-mode)
+(diminish 'helm-mode)
 
 ;;;;; IRC (ERC)
 
