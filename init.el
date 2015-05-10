@@ -6,7 +6,6 @@
 
 ;; packages configured by Custom
 (require 'whitespace)
-(require 'auto-complete)
 
 (setenv "PATH" (concat (getenv "PATH") ":/usr/local/bin"))
 
@@ -77,6 +76,8 @@
                                      (previous-line)
                                      (funcall indent-line-function)))
 (set-face-attribute 'default nil :height 100)
+
+(require 'company)
 
 (desktop-save-mode)
 
@@ -200,8 +201,6 @@
 (global-set-key (kbd "C-c v s") 'magit-status)
 (global-set-key (kbd "C-c v w") 'server-edit)
 (setq magit-last-seen-setup-instructions "1.4.0")
-
-;; Autocomplete
 
 ;;; guard (ct)
 
@@ -485,7 +484,7 @@ of seeing_is_believing."
 ;;             '("^~/src/unipede/" ":UP:") t)
 
 (diminish 'flycheck-mode "!")
-(diminish 'auto-complete-mode "*")
+(diminish 'company-mode "*")
 (diminish 'global-whitespace-mode)
 (diminish 'whitespace-mode)
 (diminish 'magit-auto-revert-mode "~")
