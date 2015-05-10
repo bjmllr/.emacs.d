@@ -542,6 +542,9 @@ of seeing_is_believing."
 (if (file-exists-p "~/.emacs.d/post-init.el")
     (load "~/.emacs.d/post-init.el"))
 
+(if (file-exists-p "~/.emacs.d/lisp/patches.el")
+    (load "~/.emacs.d/lisp/patches.el"))
+
 ;;; expansion
 
 ;;;;; Company
