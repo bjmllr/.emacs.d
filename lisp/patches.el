@@ -29,7 +29,7 @@ current block, a sibling block, or an outer block.  Do that (abs N) times."
         ;; Skip forward over hanging parens.
         (unless backward
           (while (re-search-forward "\(" (line-end-position) t)
-            (progn (backward-char) (forward-sexp))))
+            (progn (backward-char) (forward-sexp) (setq depth (1- depth)))))
         (forward-line signum)
         ;; Skip backward over hanging parens.
         (if backward
