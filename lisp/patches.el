@@ -26,7 +26,16 @@ current block, a sibling block, or an outer block.  Do that (abs N) times."
                          (line-end-position) t)
                         (not (nth 8 (syntax-ppss))))))
       (while (and (not done) (not (if backward (bobp) (eobp))))
+        ;; Skip forward over hanging parens.
+        (unless backward
+          (while (re-search-forward "\(" (line-end-position) t)
+            (progn (backward-char) (forward-sexp))))
         (forward-line signum)
+        ;; Skip backward over hanging parens.
+        (if backward
+            (progn (end-of-line)
+                   (while (re-search-backward ")" (line-beginning-position) t)
+                     (progn (forward-char) (backward-sexp)))))
         (cond
          ;; Skip empty and commented out lines.
          ((looking-at "^\\s *$"))
@@ -43,9 +52,13 @@ current block, a sibling block, or an outer block.  Do that (abs N) times."
             (forward-sexp)
             (when (bolp) (forward-char -1)))) ; After a heredoc.
          (t
-          (let ((state (ruby-parse-region (point) (line-end-position))))
+          (let ((state
+                 ;; Parse the part of the line outside hanging parens.
+                 (if backward
+                     (ruby-parse-region (line-beginning-position) (point))
+                   (ruby-parse-region (point) (line-end-position)))))
             (unless (car state) ; Line ends with unfinished string.
-              (if (nth 2 state) (setq depth (+ (nth 2 state) depth)))))
+              (setq depth (+ (nth 2 state) depth))))
           (cond
            ;; Increased depth, we found a block.
            ((> (* signum depth) 0)
