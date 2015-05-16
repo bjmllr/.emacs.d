@@ -77,6 +77,8 @@
                                      (funcall indent-line-function)))
 (set-face-attribute 'default nil :height 100)
 
+(global-set-key (kbd "M-SPC") 'cycle-spacing)
+
 (require 'company)
 
 (desktop-save-mode)
