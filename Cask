@@ -14,6 +14,9 @@
 (depends-on "wrap-region")
 (depends-on "yasnippet")
 
+(depends-on "crystal-mode"
+            :git "https://github.com/jpellerin/emacs-crystal-mode.git")
+
 (depends-on "ace-jump-buffer")
 (depends-on "ace-jump-mode")
 (depends-on "ag")

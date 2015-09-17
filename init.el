@@ -8,6 +8,8 @@
 (require 'whitespace)
 
 (setenv "PATH" (concat (getenv "PATH") ":/usr/local/bin"))
+(if (file-exists-p "/opt/crystal/embedded/lib")
+    (setenv "LIBRARY_PATH" "/opt/crystal/embedded/lib"))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;; custom-set-variables was added by Custom.
 (global-auto-revert-mode nil)
@@ -367,6 +369,9 @@ of seeing_is_believing."
 ;;;;; C
 (setq-default c-basic-offset 4)
 (setq c-basic-offset 4)
+
+;;;;; Crystal
+(require 'crystal-mode)
 
 ;;;;; Misc Key Bindings / Utility functions
 (global-unset-key (kbd "C-z")) ;; suspend-frame is also bound to C-x C-z
