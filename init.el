@@ -63,6 +63,8 @@
 (global-set-key (kbd "C-c m l") 'mc/edit-lines)
 (global-set-key (kbd "C-c m p") 'mc/mark-prev-like-this)
 (global-set-key (kbd "C-c m n") 'mc/mark-next-like-this)
+(global-set-key (kbd "C-c m a") 'mc/mark-all-like-this)
+(global-set-key (kbd "C-c m t") 'mc/mark-sgml-tag-pair)
 
 (require 'expand-region)
 (defalias 'yes-or-no-p 'y-or-n-p)
