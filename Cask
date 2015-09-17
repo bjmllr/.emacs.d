@@ -53,7 +53,6 @@
 (depends-on "rspec-mode")
 (depends-on "ruby-block")
 (depends-on "ruby-compilation")
-(depends-on "ruby-end")
 (depends-on "ruby-interpolation")
 (depends-on "ruby-tools")
 (depends-on "sbt-mode")
