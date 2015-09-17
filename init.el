@@ -216,15 +216,15 @@
   (clear-visited-file-modtime))
 (global-set-key (kbd "C-.") 'touch)
 
-;; TODO - make this not depend on magit
-;;      - try magit topdir, then projectile topdir, then PWD
 (defun guard ()
   "start a local Guard session"
   (interactive)
-  (shell-command
-   (concat "cd " (magit-get-top-dir) " && bin/guard --clear &")
-   (get-buffer-create "*Guard*"))
-  (set-buffer (get-buffer-create "*Guard*"))
+  (let* ((guard-path (locate-dominating-file default-directory "Guardfile"))
+         (guard-buffer (concat "*Guard* (" guard-path ")")))
+    (shell-command
+     (concat "cd " guard-path " && bundle exec guard &")
+     (get-buffer-create guard-buffer))
+    (set-buffer (get-buffer-create guard-buffer)))
   (compilation-shell-minor-mode))
 
 (setq ansi-color-for-comint-mode-on t)
