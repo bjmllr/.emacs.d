@@ -314,12 +314,9 @@
 
 ;;;;; Ruby
 (require 'rspec-mode)
-(require 'rbenv)
 (require 'ruby-tools)
 (require 'robe)
 
-(setq rbenv-show-active-ruby-in-modeline nil)
-(global-rbenv-mode)
 (setq rspec-use-rake-when-possible nil)
 (setenv "PAGER" (executable-find "cat"))
 
